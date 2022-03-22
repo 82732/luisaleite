@@ -1,0 +1,42 @@
+---
+title: "01-class-ds4ps-assignment"
+author: "Ana Luísa Leite A Marques"
+date: "`r format(Sys.time(), '%d-%m-%Y')`"
+output: 
+  html_document:
+    number_sections: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r pck, echo=FALSE, warning=FALSE, message=FALSE}
+library(tidyverse)
+library(here)
+```
+
+# Assignment {-}
+
+O código abaixo carrega uma base de dados de projetos do Banco Mundial. Sabendo 
+que a base de dados está ordenada em ordem crescente pelo valor corrente do projeto em USD, alocamos 
+a coluna com o nome dos projetos no objeto `project_name`.
+
+Sua tarefa é consultar a pergunta [How to access the last value in a vector?](https://stackoverflow.com/questions/77434/how-to-access-the-last-value-in-a-vector)
+no StackOverflow e apresentar qual é o nome do projeto mais caro.
+
+Utilize o *code chunk* abaixo para desenvolver sua resposta. 
+
+```{r eval=TRUE, message=FALSE, warning=FALSE}
+wb <- read_csv2(here("data/WB_Projects_downloaded_9_13_2021.csv"))
+project_name <- wb$project_name
+```
+# Usando o botão `Knit`, produza um documento .html com o resultado. {-}
+
+**Observação**: Não se esqueça de colocar seu nome.
+
+##Resultado: "Transforming Egypt's Healthcare System Project". Tendo em vista que o nome dos projetos está na ordem crescente o último vetor pode ser achado através do seguinte código
+```{r}
+tail(project_name, n=1) 
+```
+
